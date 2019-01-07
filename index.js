@@ -1,8 +1,8 @@
 'use strict';
 
 var Filter = require('broccoli-filter');
-var babel = require('babel-core');
-var reactPreset = require('babel-preset-react');
+var babel = require('@babel/core');
+var reactPreset = require('@babel/preset-react');
 
 module.exports = ReactFilter;
 
@@ -31,6 +31,6 @@ ReactFilter.prototype.processString = function (string) {
     presets: [reactPreset],
   }, this.babelOptions);
 
-  var result = babel.transform(string, babelOptions).code;
+  var result = babel.transformSync(string, babelOptions).code;
   return result;
 };
