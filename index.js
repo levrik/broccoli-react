@@ -25,9 +25,10 @@ function ReactFilter (inputTree, options) {
 ReactFilter.prototype.extensions = ['jsx'];
 ReactFilter.prototype.targetExtension = 'js';
 
-ReactFilter.prototype.processString = function (string) {
+ReactFilter.prototype.processString = function (string, relativePath) {
   var babelOptions = Object.assign({
     babelrc: false,
+    filename: './' + relativePath,
     presets: [reactPreset],
   }, this.babelOptions);
 
